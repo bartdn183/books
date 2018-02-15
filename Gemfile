@@ -8,6 +8,8 @@ end
 gem 'httparty'
 gem 'jquery-rails'
 gem 'bootstrap-sass'
+gem 'kaminari'
+gem 'bootstrap-kaminari-views'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.5'
