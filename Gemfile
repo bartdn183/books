@@ -8,8 +8,10 @@ end
 gem 'httparty'
 gem 'jquery-rails'
 gem 'bootstrap-sass'
+gem 'font-awesome-sass'
 gem 'kaminari'
 gem 'bootstrap-kaminari-views'
+gem 'awesome_print', require: "ap"
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.5'
