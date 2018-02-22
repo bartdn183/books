@@ -3,75 +3,77 @@
 <!-- Page Content -->
 <div class="container">
 
-    <!-- Page Heading -->
-    <div class="row">
-        <div class="col-lg-4">
-            <div>
-            <%= form_tag root_path, method: :get do %>
-                <div class="input-group custom-search-form">
-                <%= text_field_tag :search, nil, class: "form-control", placeholder: "Search Books...", style: "height: 50px;" %>
-                <span class="input-group-btn">
-                <%= button_tag(type: "submit",  class: "btn btn-default", style: "border-radius: 3px; border: 1px solid rgb(204,204,204); color: #fed136; background: black; height: 50px;") do %>
-                    <i class="fa fa-search fa-fw"></i>
-                <% end %>
-                </span>
-                </div>
-            <% end %>
-            </div>
-        </div>
-        <div class="col-lg-8">
-            <h1 class="text-right" style="margin-top: 0;padding-top: 10px;">All Famous Books</h1>
-        </div>
-    </div>
-    <hr class="border: 2px solid gray;">
-    <!-- Projects Row -->
-    <div class="row">
-        <% @paginatable_array.each do |info| %>
-            <div class="col-sm-6 col-md-6 col-lg-4">
-                <div class="text-center">
-                    <% if info["isbn"] == nil %>
-                        <%= image_tag "no_cover.jpg", class: "img-responsive", style: "height: 250px; width: 60%; max-width: 100%;" %>
-                    <% else %>
-                        <%= image_tag "http://covers.openlibrary.org/b/isbn/#{null?(info["isbn"])}-L.jpg", class: "img-responsive", style: "height: 250px; width: 60%; max-width: 100%;" %>
+    <div id="boxed-view">
+            <!-- Page Heading -->
+            <div class="row">
+                <div class="col-lg-4"> 
+                   <div>
+                    <%= form_tag root_path, method: :get do %>
+                        <div class="input-group custom-search-form">
+                        <%= text_field_tag :search, nil, class: "form-control", placeholder: "Search Books...", style: "height: 50px;" %>
+                        <span class="input-group-btn">
+                        <%= button_tag(type: "submit",  class: "btn btn-default", style: "border-radius: 3px; border: 1px solid rgb(204,204,204); color: #fed136; background: black; height: 50px;") do %>
+                            <i class="fa fa-search fa-fw"></i>
+                        <% end %>
+                        </span>
+                        </div>
                     <% end %>
+                    </div>
                 </div>
-<!--                 <a href="#">
-
-                    <img class="img-responsive" src="http://placehold.it/750x450" alt="">
-                </a> -->
-                <br>   
-                  <div class="table-responsive">
-                    <table class="table">
-                        <tr>
-                            <td class="col-md-3 col-lg-3"><b>Title:</b></td>
-                            <td class="col-md-9 col-lg-9"><%= null?(info["title"]) %></td>
-                        </tr>
-                        <tr>
-                            <td class="col-md-3 col-lg-3"><b>Author:</b></td> 
-                            <td class="col-md-9 col-lg-9"><%= null?(info["author"]) %></td>
-                        </tr>
-                        <tr>
-                            <td class="col-md-3 col-lg-3"><b>Year:</b> </td>
-                            <td class="col-md-9 col-lg-9"><%= null?(info["year"]) %></td>
-                        </tr>
-                        <tr>
-                            <td class="col-md-3 col-lg-3"><b>ISBN:</b> </td>
-                            <td class="col-md-9 col-lg-9"><%= null?(info["isbn"]) %></td>
-                        </tr>
-                    </table>
-                  </div>
+                <div class="col-lg-8">
+                    <h1 class="text-right" style="margin-top: 0;padding-top: 10px;">All Famous Books</h1>
+                </div>
             </div>
-        <% end %>
-    </div>
-    <!-- /.row -->
+            <hr class="border: 2px solid gray;">
+            <!-- Projects Row -->
+            <div class="row">
+                <% @paginatable_array.each do |info| %>
+                    <div class="col-sm-6 col-md-6 col-lg-4">
+                        <div class="text-center">
+                            <% if info["isbn"] == nil %>
+                                <%= image_tag "no_cover.jpg", class: "img-responsive", style: "height: 250px; width: 60%; max-width: 100%;" %>
+                            <% else %>
+                                <%= image_tag "http://covers.openlibrary.org/b/isbn/#{null?(info["isbn"])}-L.jpg", class: "img-responsive", style: "height: 250px; width: 60%; max-width: 100%;" %>
+                            <% end %>
+                        </div>
+        <!--                 <a href="#">
 
-    <% if @paginatable_array.size > 6 %>
-    <hr>
-    <% end %>
-    <div class="text-center">
-        <%= paginate @paginatable_array, :theme => 'twitter-bootstrap-3', :pagination_class => "pagination-small pagination-centered
-        " %>
-    </div>
+                            <img class="img-responsive" src="http://placehold.it/750x450" alt="">
+                        </a> -->
+                        <br>   
+                          <div class="table-responsive">
+                            <table class="table">
+                                <tr>
+                                    <td class="col-md-3 col-lg-3"><b>Title:</b></td>
+                                    <td class="col-md-9 col-lg-9"><%= null?(info["title"]) %></td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-3 col-lg-3"><b>Author:</b></td> 
+                                    <td class="col-md-9 col-lg-9"><%= null?(info["author"]) %></td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-3 col-lg-3"><b>Year:</b> </td>
+                                    <td class="col-md-9 col-lg-9"><%= null?(info["year"]) %></td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-3 col-lg-3"><b>ISBN:</b> </td>
+                                    <td class="col-md-9 col-lg-9"><%= null?(info["isbn"]) %></td>
+                                </tr>
+                            </table>
+                          </div>
+                    </div>
+                <% end %>
+            </div>
+            <!-- /.row -->
+
+            <% if @paginatable_array.size > 6 %>
+            <hr>
+            <% end %>
+            <div class="text-center">
+                <%= paginate @paginatable_array, :theme => 'twitter-bootstrap-3', :pagination_class => "pagination-small pagination-centered
+                " %>
+            </div>
+        </div>
 
     <hr>
 

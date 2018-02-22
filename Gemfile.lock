@@ -51,6 +51,7 @@ GEM
     bootstrap-sass (3.3.7)
       autoprefixer-rails (>= 5.2.1)
       sass (>= 3.3.4)
+    bootstrap-table-rails (1.11.1.1)
     builder (3.2.3)
     byebug (10.0.0)
     capybara (2.18.0)
@@ -208,6 +209,7 @@ DEPENDENCIES
   awesome_print
   bootstrap-kaminari-views
   bootstrap-sass
+  bootstrap-table-rails
   byebug
   capybara (~> 2.13)
   coffee-rails (~> 4.2)

@@ -1,0 +1,61 @@
+<%= render 'layouts/navbar' %>
+
+<!-- Page Content -->
+<div class="container">
+
+    <div id="table-view">
+            <!-- Page Heading -->
+            <div class="row">
+                <div class="col-lg-4"> 
+                   <div>
+                    <%= form_tag table_view_path, method: :get do %>
+                        <div class="input-group custom-search-form">
+                        <%= text_field_tag :search, nil, class: "form-control", placeholder: "Search Books...", style: "height: 50px;" %>
+                        <span class="input-group-btn">
+                        <%= button_tag(type: "submit",  class: "btn btn-default", style: "border-radius: 3px; border: 1px solid rgb(204,204,204); color: #fed136; background: black; height: 50px;") do %>
+                            <i class="fa fa-search fa-fw"></i>
+                        <% end %>
+                        </span>
+                        </div>
+                    <% end %>
+                    </div>
+                </div>
+                <div class="col-lg-8">
+                    <h1 class="text-right" style="margin-top: 0;padding-top: 10px;">All Famous Books</h1>
+                </div>
+            </div>
+                        <hr class="border: 2px solid gray;">
+            <div class="row">
+                <div class="col-lg-10 col-lg-offset-1">
+                    <div class="table-responsive">
+                        <table class="table table-striped" data-toggle="table">
+                            <thead>
+                                <tr>
+                                    <th data-sortable="true">Title</th>
+                                    <th data-sortable="true">Author</th>
+                                    <th data-sortable="true">Year</th>
+                                    <th data-sortable="true">ISBN</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <% @books_data.each do |book| %>
+                                  <tr>
+                                    <td><%= book["title"] %></td>
+                                    <td><%= book["author"] %></td>
+                                    <td><%= book["year"] %></td>
+                                    <td><%= book["isbn"] %></td>
+                                  </tr>
+                                <% end %>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    <hr>
+
+    <%= render 'layouts/footer' %>
+
+
+</div>

@@ -12,6 +12,7 @@ gem 'font-awesome-sass'
 gem 'kaminari'
 gem 'bootstrap-kaminari-views'
 gem 'awesome_print', require: "ap"
+gem "bootstrap-table-rails"
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.5'

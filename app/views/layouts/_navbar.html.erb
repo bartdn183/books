@@ -14,6 +14,12 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
+                <li style="border: 1px solid gray; margin: 5px 0;"><% if current_page?(root_path) %>
+                    <%= link_to "Table View", table_view_path, style: "padding: 5px; margin-top: 5px;" %>
+                    <% else %>
+                    <%= link_to "Boxed View", root_path,style: "padding: 5px; margin-top: 5px;" %>
+                    <% end %>
+                </li>
                 <li>
                     <a href="#">About</a>
                 </li>
